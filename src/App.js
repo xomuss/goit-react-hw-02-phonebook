@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ContactsList from './Components/ContactsList';
 import Form from './Components/Form';
 import Filter from './Components/Filter';
+import Container from './Components/Container';
 import shortid from 'shortid';
 
 class App extends Component {
@@ -27,6 +28,11 @@ class App extends Component {
       number,
       id: shortid.generate(),
     };
+
+    if (this.state.contacts.find(el => el.name === contact.name)) {
+      alert('This contact already exist');
+      return;
+    }
 
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],

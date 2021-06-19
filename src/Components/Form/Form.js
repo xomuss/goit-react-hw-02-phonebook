@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
+import styles from './Form.module.css';
 
 class Form extends Component {
   state = {
@@ -33,6 +34,7 @@ class Form extends Component {
         <label htmlFor={this.nameInputId}>
           Name
           <input
+            className={styles.form__input}
             id={this.nameInputId}
             onChange={this.handleChange}
             value={this.state.name}
@@ -46,6 +48,7 @@ class Form extends Component {
         <label htmlFor={this.telInputId}>
           Telephone
           <input
+            className={styles.form__input}
             id={this.telInputId}
             onChange={this.handleChange}
             value={this.state.number}
@@ -56,7 +59,9 @@ class Form extends Component {
             required
           />
         </label>
-        <button type="submit">Add Contact</button>
+        <button className={styles.form__btn} type="submit">
+          Add Contact
+        </button>
       </form>
     );
   }
